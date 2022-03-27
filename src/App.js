@@ -1,32 +1,36 @@
-import logo from './logo.svg'; // spinning logo
+import React, {Component} from "react";
+import CardList from "./CardList";
+import {robots} from './robots'; // we need to destructure bc it's not a default export, it's a multiple export.
+import SearchBox from './SearchBox';
 import './App.css';
-import React, { Component } from 'react'; // add this!!
 
-class App extends React.Component { // this is what appears as a placeholder b4 u start coding ur react 
-                                    // website
-  render() { // a component should always have a render function, and within in u say what to return.
-    return (
-      <div className="App"> {/* u use className instead of class bc since we're writing inside a JSX file,
-                                class is already a reserved keyword for JS, so we can't use it for HTML. */}
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-            {this.props.greeting} {/* we use our created properties like this. */}
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+class App extends Component {
+    constructor() {
+        super()
+        this.state = { // state = description of ur app. this is what can change. it's usually in the parent component, so it can pass 
+                       // the info to the others. =/= props, which come out of state and can't change.
+            robots: robots,
+            searchfield: '',
+        }
+    }
+
+    onSearchChange = (event) => { // function we're making up for the search bar
+        console.log(event.target.value);
+        this.setState({ searchfield: event.target.value });
+    }
+
+    render() {
+        const filteredRobots = this.state.robots.filter(robot => {
+            return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+        });
+        return (
+            <div className='tc'>
+                <h1 className="f1">RoboFriends</h1>
+                <SearchBox searchChange={this.onSearchChange} />
+                <CardList robots={filteredRobots}/>
+            </div>
+        );
+    }
 }
 
-export default App; // if we want to import it in another file, we need to export it. default means ur 
-                    // only exporting one thing.
+export default App;
