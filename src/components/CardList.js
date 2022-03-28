@@ -1,8 +1,10 @@
 import React from "react";
 import Card from "./Card";
-// import {robots} from './robots';
 
 const CardList = ({ robots }) => {
+    // if (true) { // this was to test the ErrorBoundary
+    //     throw new Error('NOOOOO!');
+    // }
     return (
         <div>
             {
