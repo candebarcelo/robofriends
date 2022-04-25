@@ -11,8 +11,9 @@ const CardList = ({ robots }) => {
                 robots.map((user, i) => {
                     return (
                         <Card 
-                            key={robots[i].id} // we should add a unique key to each item in a loop, to minimize the program's effort. if one item is 
-                                            // changed it'll know which one and just modify that one, otherwise it'll have to re-render the entire dom.
+                            key={robots[i].id} // we should add a unique key to each item in a loop, to minimize the program's effort. if
+                                            // one item is changed it'll know which one and just modify that one, otherwise it'll have to
+                                            // re-render the entire dom.
                             id={robots[i].id} 
                             name={robots[i].name} 
                             email={robots[i].email} 

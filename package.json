@@ -1,6 +1,6 @@
 {
   "name": "robofriends",
-  "homepage": "https://candebarcelo.github.io/robofriends",
+  "homepage": "https://candebarcelo.github.io/robofriends/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,9 @@
     "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.8",
     "react-scripts": "^5.0.0",
+    "redux": "^4.1.2",
     "tachyons": "^4.12.0",
     "web-vitals": "^2.1.4"
   },
@@ -20,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" 
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
